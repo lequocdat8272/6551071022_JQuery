@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký thông tin</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+
+<div id="form-container" style="text-align: center">
+    <h2>Personal Information</h2>
+    <form id="userInfoForm">
+    <table style="text-align: center; margin: auto;">
+        <ul id="error-messages"></ul>
+
+        <tr>
+            <td class="tdl"><label for="name">Enter name*:</label></td>
+            <td class="tdr"><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label>Sex*:</label></td>
+            <td class="tdr">
+                <input type="radio" name="sex" value="male"> Male
+                <input type="radio" name="sex" value="female"> Female
+            </td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="email">Enter email address*:</label></td>
+            <td class="tdr"><input type="text" id="email"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="birthday">Enter birthday (DD/MM/YYYY)*:</label></td>
+            <td class="tdr"><input type="text" id="birthday" placeholder="DD/MM/YYYY"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="street">Enter street address (line 1)*:</label></td>
+            <td class="tdr"><input type="text" id="street"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="city">Enter city*:</label></td>
+            <td class="tdr"><input type="text" id="city"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="region">Select a region*:</label></td>
+            <td class="tdr"><select id="region">
+                <option value="" disabled selected>-- Select --</option>
+                <option value="north">North</option>
+                <option value="central">Central</option>
+                <option value="south">South</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td class="tdl"><label for="zipcode">Enter 5-digit ZIP code*:</label></td>
+            <td class="tdr"><input type="text" id="zipcode"></td>
+        </tr>
+        <tr>
+            <td class="tdl"><button type="submit" id="finishBtn">Finished</button></td>
+            <td class="tdr"><button type="button" id="clearBtn">Clear</button></td>
+        </tr>
+    </table>
+    </form>
+</div>
+
+<script>
+$(document).ready(function() {
+
+    $('#clearBtn').click(function() {
+        
+        $('#userInfoForm')[0].reset();
+        
+        $('#error-messages').empty();
+    });
+
+    $('#userInfoForm').submit(function(event) {
+        event.preventDefault();
+
+        let errors = [];
+        
+        $('#error-messages').empty();
+
+        if ($('#name').val().trim() === '') {
+            errors.push('Name không được để trống.');
+        }
+        if (!$('input[name="sex"]:checked').val()) {
+            errors.push('Sex phải được chọn.');
+        }
+        if ($('#street').val().trim() === '') {
+            errors.push('Street address không được để trống.');
+        }
+        if ($('#city').val().trim() === '') {
+            errors.push('City không được để trống.');
+        }
+        if ($('#region').val() === null || $('#region').val() === '') {
+            errors.push('Region phải được chọn.');
+        }
+        
+        const email = $('#email').val().trim();
+        if (email === '') {
+            errors.push('Email không được để trống.');
+        } else {
+            const emailParts = email.split('@');
+            if (emailParts.length !== 2) {
+                errors.push('Email phải có đúng 1 ký tự @.');
+            } else {
+                const account = emailParts[0];
+                const domain = emailParts[1];
+                if (account.split('.').length > 2) {
+                    errors.push('Phần tên tài khoản của email có tối đa 1 dấu chấm.');
+                }
+                if (!domain.includes('.')) {
+                    errors.push('Phần domain của email phải có ít nhất 1 dấu chấm.');
+                }
+            }
+        }
+        
+        const birthday = $('#birthday').val().trim();
+        if (birthday === '') {
+            errors.push('Ngày sinh không được để trống.');
+        } else {
+            
+            const dateRegex = /^(\d{2})[\/\-](\d{2})[\/\-](\d{4})$/;
+            const match = birthday.match(dateRegex);
+            if (!match) {
+                errors.push('Định dạng ngày sinh phải là DD/MM/YYYY hoặc DD-MM-YYYY.');
+            } else {
+                const day = parseInt(match[1], 10);
+                const month = parseInt(match[2], 10);
+                const year = parseInt(match[3], 10);
+                const currentYear = new Date().getFullYear();
+
+                if (month < 1 || month > 12) {
+                    errors.push('Tháng sinh phải từ 1 đến 12.');
+                }
+                if (year >= currentYear) {
+                    errors.push('Năm sinh phải nhỏ hơn năm hiện tại.');
+                }
+            }
+        }
+
+        const zipcode = $('#zipcode').val().trim();
+        if (zipcode === '') {
+            errors.push('Zip code không được để trống.');
+        } else {
+            
+            const zipRegex = /^\d{5}$/;
+            if (!zipRegex.test(zipcode)) {
+                errors.push('Zip code phải có đúng 5 chữ số.');
+            }
+        }
+
+        if (errors.length > 0) {
+            
+            $.each(errors, function(index, message) {
+                $('#error-messages').append('<li>' + message + '</li>');
+            });
+        } else {
+            alert('Đăng ký thành công!');
+            
+             $('#userInfoForm')[0].reset();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
