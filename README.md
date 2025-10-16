@@ -9,3 +9,4 @@ changlog:
 - 10h25: [Bài 5](6551071022_JQUERY_05/randomImage.html)
 - 10h40: [Bài 6](6551071022_JQUERY_06/demDropdown.html)
 - 10h55: [Bài 7](6551071022_JQUERY_07/link.html)
+- 11h05: [Bài 8](6551071022_JQUERY_08/tinhToan.html)
