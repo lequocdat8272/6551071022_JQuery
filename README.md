@@ -6,3 +6,4 @@ changlog:
 - 9h45: [Bài 2](6551071022_JQUERY_02/nameDOM.html)
 - 10h00: [Bài 3](6551071022_JQUERY_03/themHang.html)
 - 10h15: [Bài 4](6551071022_JQUERY_04/xoaSelect.html)
+- 10h25: [Bài 5](6551071022_JQUERY_05/randomImage.html)
