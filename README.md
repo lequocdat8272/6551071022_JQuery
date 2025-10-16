@@ -8,3 +8,4 @@ changlog:
 - 10h15: [Bài 4](6551071022_JQUERY_04/xoaSelect.html)
 - 10h25: [Bài 5](6551071022_JQUERY_05/randomImage.html)
 - 10h40: [Bài 6](6551071022_JQUERY_06/demDropdown.html)
+- 10h55: [Bài 7](6551071022_JQUERY_07/link.html)
