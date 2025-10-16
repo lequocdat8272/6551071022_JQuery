@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Display a random image.</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="image-placeholder"></div>
+
+    <div>
+        <button id="jsstyle">Show Image</button>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        
+        const images = [
+            {
+                src: 'http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg',
+                width: '240',
+                height: '160'
+            },
+            {
+                src: 'http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg',
+                width: '320',
+                height: '195'
+            },
+            {
+                src: 'http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg',
+                width: '500',
+                height: '343'
+            }
+        ];
+
+        $("#jsstyle").click(function() {
+            
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const randomImage = images[randomIndex];
+
+            const newImage = $('<img>').attr({
+                'src': randomImage.src,
+                'width': randomImage.width,
+                'height': randomImage.height,
+                'alt': 'A random image'
+            });
+
+            $('#image-placeholder').html(newImage);
+        });
+    });
+    </script>
+</body>
+</html>
