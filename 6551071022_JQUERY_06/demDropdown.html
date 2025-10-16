@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body { margin: 30px; }
+    </style>
+    <title>Count and display items of a dropdown list - w3resource</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <form>
+        Select your favorite Color :
+        <select id="mySelect">
+            <option>Red</option>
+            <option>Green</option>
+            <option>White</option>
+            <option>Black</option>
+        </select>
+        <input type="button" id="countBtn" value="Count and Output all items">
+    </form>
+
+    <script>
+    $(document).ready(function() {
+        
+        $("#countBtn").click(function() {
+            
+            const options = $('#mySelect option');
+            
+            const itemCount = options.length;
+            
+            let itemsText = [];
+            options.each(function() {
+                itemsText.push($(this).text());
+            });
+            
+            alert("Số lượng mục: " + itemCount + "\n\nCác mục gồm:\n" + itemsText.join("\n"));
+        });
+    });
+    </script>
+</body>
+</html>
