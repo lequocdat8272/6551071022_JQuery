@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+
+<div id="calculator">
+    
+    <div id="buttons">
+        <table border="2">
+            <tr>
+                <td colspan="4">
+                    <input class="out" type="text" id="display">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn">1</button>
+                </td>
+                <td>
+                    <button class="btn">2</button>
+                </td>
+                <td>
+                    <button class="btn">3</button>
+                </td>
+                <td> 
+                    <button class="btn operator">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn">4</button>
+                </td>
+                <td>
+                    <button class="btn">5</button>
+                </td>
+                <td>
+                    <button class="btn">6</button>
+                </td>
+                <td> 
+                    <button class="btn operator">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn">7</button>
+                </td>
+                <td>
+                    <button class="btn">8</button>
+                </td>
+                <td>
+                    <button class="btn">9</button>
+                </td>
+                <td> 
+                    <button class="btn operator">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="width: 100px; height: 50px; font-size: 20px;" id="btnClear">C</button>
+                </td>
+                <td>
+                    <button class="btn">0</button>
+                </td>
+                <td>
+                    <button style="width: 100px; height: 50px; font-size: 20px;" id="btnEquals">=</button>
+                </td>
+                <td>
+                    <button class="btn">/</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+
+    $('.btn').click(function() {
+        
+        const currentDisplay = $('#display').val();
+        
+        const buttonValue = $(this).text();
+        
+        $('#display').val(currentDisplay + buttonValue);
+    });
+
+    $('#btnClear').click(function() {
+        $('#display').val('');
+    });
+
+    function evaluateExpression() {
+        const expression = $('#display').val();
+        
+        const regex = /^(\d+\.?\d*)\s*([\+\-\*\/])\s*(\d+\.?\d*)$/;
+        const match = expression.match(regex);
+
+        if (match) {
+            
+            const num1 = parseFloat(match[1]);
+            const operator = match[2];
+            const num2 = parseFloat(match[3]);
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert('Lỗi: Không thể chia cho 0!');
+                        $('#display').val('Error');
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+            
+            $('#display').val(result);
+        } else {
+            alert('Biểu thức không hợp lệ. Vui lòng nhập theo dạng "số1 toán_tử số2".');
+            $('#display').val('Invalid');
+        }
+    }
+
+    $('#btnEquals').click(function() {
+        evaluateExpression();
+    });
+
+    $('#display').keypress(function(event) {
+        
+        if (event.which === 13) {
+            event.preventDefault();
+            evaluateExpression();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
