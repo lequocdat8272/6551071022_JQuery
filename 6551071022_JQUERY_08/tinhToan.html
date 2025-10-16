@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+
+    <div id="calculator">
+        <input type="number" id="num1" class="number-input" placeholder="Số 1">
+        
+        <button class="op-btn" data-operator="+">+</button>
+        <button class="op-btn" data-operator="-">-</button>
+        <button class="op-btn" data-operator="*">×</button>
+        <button class="op-btn" data-operator="/">÷</button>
+        <button class="op-btn" data-operator="^">^</button>
+        
+        <input type="number" id="num2" class="number-input" placeholder="Số 2">
+        
+        <span class="equals-sign">=</span>
+        
+        <input type="text" id="result-output" readonly>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        
+        $('.op-btn').click(function() {
+            
+            const num1 = parseFloat($('#num1').val());
+            const num2 = parseFloat($('#num2').val());
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Vui lòng nhập đầy đủ và hợp lệ cả hai số!");
+                return;
+            }
+
+            const operator = $(this).data('operator');
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert("Không thể chia cho 0!");
+                        $('#result-output').val('Lỗi');
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                case '^':
+                    result = Math.pow(num1, num2);
+                    break;
+                default:
+                    alert("Phép toán không hợp lệ!");
+                    return;
+            }
+
+            $('#result-output').val(result.toFixed(4));
+        });
+    });
+    </script>
+
+</body>
+</html>
