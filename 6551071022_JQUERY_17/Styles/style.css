@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 40px;
+}
+
+#accordion-container {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.accordion-title {
+    background-color: #4f81bd;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-title:hover {
+    background-color: #3e6aa0;
+}
+        
+.accordion-title:last-of-type {
+    border-bottom: none;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: white;
+    display: none;
+    border-bottom: 1px solid #ccc;
+}

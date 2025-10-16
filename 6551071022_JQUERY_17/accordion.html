@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu trượt</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+
+    <h2 style="text-align: center;">Accordion Menu</h2>
+
+    <div id="accordion-container">
+        <div class="accordion-title">Tiêu đề 1</div>
+        <div class="accordion-content">
+            <p>Đây là nội dung của mục 1. Khi bạn nhấp vào Tiêu đề 2, nội dung này sẽ được ẩn đi.</p>
+        </div>
+
+        <div class="accordion-title">Tiêu đề 2</div>
+        <div class="accordion-content">
+            <p>Đây là nội dung của mục 2. Nội dung có thể chứa văn bản, hình ảnh, hoặc bất kỳ phần tử HTML nào khác.</p>
+        </div>
+
+        <div class="accordion-title">Tiêu đề 3</div>
+        <div class="accordion-content">
+            <p>Đây là nội dung của mục 3. Mỗi lần chỉ có một nội dung được hiển thị.</p>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        
+        $('.accordion-title').click(function() {
+            
+            var contentToShow = $(this).next('.accordion-content');
+
+            if (contentToShow.is(':visible')) {
+                contentToShow.slideUp();
+            } else {
+                $('.accordion-content').slideUp();
+                
+                contentToShow.slideDown();
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
