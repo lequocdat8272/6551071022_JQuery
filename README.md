@@ -2,4 +2,4 @@
 
 changlog:
 
-- 9h30: [Bài 1](6551071022_JQUERY_01/textDOM.html) - 9h45: [Bài 2](6551071022_JQUERY_02/nameDOM.html) - 10h00: [Bài 3](6551071022_JQUERY_03/themHang.html) - 10h15: [Bài 4](6551071022_JQUERY_04/xoaSelect.html) - 10h25: [Bài 5](6551071022_JQUERY_05/randomImage.html) - 10h40: [Bài 6](6551071022_JQUERY_06/demDropdown.html) - 10h55: [Bài 7](6551071022_JQUERY_07/link.html) - 11h05: [Bài 8](6551071022_JQUERY_08/tinhToan.html) - 20h10: [Bài 9](6551071022_JQUERY_09)
+- 9h30: [Bài 1](6551071022_JQUERY_01/textDOM.html) - 9h45: [Bài 2](6551071022_JQUERY_02/nameDOM.html) - 10h00: [Bài 3](6551071022_JQUERY_03/themHang.html) - 10h15: [Bài 4](6551071022_JQUERY_04/xoaSelect.html) - 10h25: [Bài 5](6551071022_JQUERY_05/randomImage.html) - 10h40: [Bài 6](6551071022_JQUERY_06/demDropdown.html) - 10h55: [Bài 7](6551071022_JQUERY_07/link.html) - 11h05: [Bài 8](6551071022_JQUERY_08/tinhToan.html) - 20h10: [Bài 9](6551071022_JQUERY_09) - 20h50: [Bài 10](6551071022_JQUERY_10)
