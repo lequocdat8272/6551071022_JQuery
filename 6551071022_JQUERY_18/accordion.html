@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DataTables Example</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px 40px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Danh sách sinh viên</h1>
+    <p>Sử dụng ô tìm kiếm bên dưới để lọc dữ liệu, hoặc nhấn vào tiêu đề cột để sắp xếp.</p>
+
+    <table id="myDataTable" class="display">
+        <thead>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ và Tên</th>
+                <th>Chuyên ngành</th>
+                <th>Năm nhập học</th>
+                <th>Điểm trung bình</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SV001</td>
+                <td>Lê Quốc Đạt</td>
+                <td>Công nghệ thông tin</td>
+                <td>2021</td>
+                <td>8.5</td>
+            </tr>
+            <tr>
+                <td>SV002</td>
+                <td>Huỳnh Đức Đạt</td>
+                <td>Quản trị kinh doanh</td>
+                <td>2022</td>
+                <td>7.9</td>
+            </tr>
+            <tr>
+                <td>SV003</td>
+                <td>Đinh An Bang</td>
+                <td>Kỹ thuật phần mềm</td>
+                <td>2021</td>
+                <td>9.1</td>
+            </tr>
+            <tr>
+                <td>SV004</td>
+                <td>Cao Võ Đình Giang</td>
+                <td>Ngôn ngữ Anh</td>
+                <td>2023</td>
+                <td>8.2</td>
+            </tr>
+            <tr>
+                <td>SV005</td>
+                <td>Nguyễn Phúc Sang</td>
+                <td>Công nghệ thông tin</td>
+                <td>2022</td>
+                <td>7.5</td>
+            </tr>
+             <tr>
+                <td>SV006</td>
+                <td>Lê Công Minh</td>
+                <td>Quản trị kinh doanh</td>
+                <td>2021</td>
+                <td>8.8</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+    
+    $('#myDataTable').DataTable();
+});
+</script>
+
+</body>
+</html>
